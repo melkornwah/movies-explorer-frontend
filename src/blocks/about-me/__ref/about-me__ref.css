@@ -1,4 +1,13 @@
 .about-me__ref {
   text-decoration: none;
   color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94;
+  transition: .5s;
+}
+
+.about-me__ref:hover {
+  opacity: .6;
+  transition: .5s;
 }

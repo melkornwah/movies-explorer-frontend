@@ -7,9 +7,16 @@
   text-decoration: none;
   cursor: pointer;
   transition: .5s;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .nav-tab__link:hover {
   opacity: .6;
   transition: .5s;
+}
+
+.nav-tab__link:last-child{
+  margin: 0;
 }

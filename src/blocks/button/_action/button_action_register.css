@@ -1,4 +1,7 @@
 .button_action_register {
   margin: 0;
   padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }

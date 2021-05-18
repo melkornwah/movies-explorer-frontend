@@ -1,4 +1,7 @@
 .timeline-front__time {
   background-color: #303030;
   padding: 9px 356px 9px 356px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
 }
