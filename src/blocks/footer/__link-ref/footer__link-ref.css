@@ -1,0 +1,10 @@
+.footer__link-ref {
+  color: white;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.footer__link-ref:hover {
+  opacity: .6;
+  transition: .5s;
+}

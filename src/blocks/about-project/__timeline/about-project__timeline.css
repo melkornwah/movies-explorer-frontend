@@ -1,0 +1,5 @@
+.about-project__timeline {
+  display: flex;
+  flex-direction: row;
+  margin: 110px 0 110px 0;
+}

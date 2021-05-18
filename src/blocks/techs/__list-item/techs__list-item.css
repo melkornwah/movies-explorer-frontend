@@ -1,0 +1,8 @@
+.techs__list-item {
+  width: 90px;
+  background-color: #303030;
+  padding: 21px 26px 21px 26px;
+  margin: 0 10px 0 0;
+  border-radius: 10px;
+  cursor: default;
+}

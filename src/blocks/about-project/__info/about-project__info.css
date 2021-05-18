@@ -1,0 +1,5 @@
+.about-project__info {
+  display: flex;
+  flex-direction: row;
+  margin: 70px 0 0 0;
+}

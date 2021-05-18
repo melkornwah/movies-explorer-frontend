@@ -1,0 +1,5 @@
+.about-me__info {
+  display: flex;
+  flex-direction: row;
+  margin: 66px 0 0 0;
+}

@@ -1,0 +1,5 @@
+.about-me__info-text {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
