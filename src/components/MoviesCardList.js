@@ -13,15 +13,22 @@ function MoviesCardList(props) {
             return <MoviesCard
               item={movie}
               key={i}
+              currentRoute={props.currentRoute}
             />
           })
           :
           console.log("Фильмов пока что нет")
         }
       </ul>
-      <button className="button button_action_more">
-        Ещё
-      </button>
+      {
+        props.currentRoute === "saved"
+          ?
+        <></>
+          :
+        <button className="button button_action_more">
+          Ещё
+        </button>
+      }
       {
         props.preloaderState
           ?

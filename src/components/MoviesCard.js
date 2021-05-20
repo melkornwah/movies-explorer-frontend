@@ -11,6 +11,10 @@ function MoviesCard(props) {
     }
   };
 
+  const handleDeleteClick = () => {
+    console.log("Удаление пока не реализовано");
+  };
+
   return(
     <li className="movies-card">
       <div className="movies-card__head">
@@ -23,6 +27,10 @@ function MoviesCard(props) {
           </p>
         </div>
         {
+          props.currentRoute === "saved"
+            ?
+          <button className="movies-card__save-button movies-card__save-button_saved" onClick={handleDeleteClick} />
+            :
           isLiked
             ?
           <button className="movies-card__save-button movies-card__save-button_active" onClick={handleLikeClick} />

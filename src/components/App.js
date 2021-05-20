@@ -5,12 +5,16 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import Movies from "./Movies";
+import SavedMovies from "./SavedMovies";
 import ProtectedRoute from "./ProtectedRoute";
 import movies from "../utils/ulits";
 
 function App() {
   const [isLoggedIn, setIsLoggedInState] = React.useState(true);
+  const [currentRoute, setCurrentRoute] = React.useState("saved");
   const [unrenderMain, setUnrenderMainState] = React.useState(true);
+  const [unrenderMovies, setUnrenderMoviesState] = React.useState(true);
+  const [unrenderSavedMovies, setUnrenderSavedMoviesState] = React.useState(true);
   const [preloaderState, setPreloaderState] = React.useState(false);
 
   return (
@@ -25,13 +29,34 @@ function App() {
           <Main />
         </Route>
       }
-      <ProtectedRoute
-        path="/movies"
-        component={Movies}
-        isLoggedIn={isLoggedIn}
-        preloaderState={preloaderState}
-        moviesArray={movies}
-      />
+      {
+        unrenderMovies
+          ?
+        <></>
+          :
+        <ProtectedRoute
+          path="/movies"
+          component={Movies}
+          isLoggedIn={isLoggedIn}
+          preloaderState={preloaderState}
+          moviesArray={movies}
+          currentRoute={currentRoute}
+        />
+      }
+      {
+        unrenderSavedMovies
+          ?
+        <></>
+          :
+        <ProtectedRoute
+          path="/saved-movies"
+          component={SavedMovies}
+          isLoggedIn={isLoggedIn}
+          preloaderState={preloaderState}
+          moviesArray={movies}
+          currentRoute={currentRoute}
+        />
+      }
       <Footer />
     </div>
   );

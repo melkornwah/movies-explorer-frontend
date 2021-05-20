@@ -2,10 +2,10 @@ import React from "react";
 import SearchForm from "./SearchForm";
 import MoviesCardList from "./MoviesCardList";
 
-function Movies(props) {
+function SavedMovies(props) {
   return(
-    <section className="movies">
-      <SearchForm name="movies" />
+    <section className="saved-movies">
+      <SearchForm name="saved-movies" />
       <MoviesCardList
         moviesArray={props.moviesArray}
         currentRoute={props.currentRoute}
@@ -14,4 +14,4 @@ function Movies(props) {
   );
 };
 
-export default Movies;
+export default SavedMovies;

@@ -87,6 +87,7 @@
 @import url("./blocks/movies-card/__length/movies-card__length.css");
 @import url("./blocks/movies-card/__save-button/movies-card__save-button.css");
 @import url("./blocks/movies-card/__save-button/_active/movies-card__save-button_active.css");
+@import url("./blocks/movies-card/__save-button/_saved/movies-card__save-button_saved.css");
 @import url("./blocks/movies-card/__photo/movies-card__photo.css");
 
 @import url("./blocks/footer/footer.css");
