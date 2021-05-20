@@ -6,6 +6,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import Movies from "./Movies";
 import SavedMovies from "./SavedMovies";
+import Profile from "./Profile";
 import ProtectedRoute from "./ProtectedRoute";
 import movies from "../utils/ulits";
 
@@ -15,6 +16,8 @@ function App() {
   const [unrenderMain, setUnrenderMainState] = React.useState(true);
   const [unrenderMovies, setUnrenderMoviesState] = React.useState(true);
   const [unrenderSavedMovies, setUnrenderSavedMoviesState] = React.useState(true);
+  const [unrenderFooter, setUnrenderFooterState] = React.useState(true);
+  const [unrenderProfile, setUnrenderProfileState] = React.useState(true);
   const [preloaderState, setPreloaderState] = React.useState(false);
 
   return (
@@ -57,7 +60,24 @@ function App() {
           currentRoute={currentRoute}
         />
       }
-      <Footer />
+      {
+        unrenderProfile
+          ?
+        <></>
+          :
+        <ProtectedRoute
+          path="/profile"
+          component={Profile}
+          isLoggedIn={isLoggedIn}
+        />
+      }
+      {
+        unrenderFooter
+          ?
+        <></>
+          :
+        <Footer />
+      }
     </div>
   );
 };

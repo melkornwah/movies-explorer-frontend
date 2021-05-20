@@ -13,6 +13,8 @@
 @import url("./blocks/button/_action/button_action_login.css");
 @import url("./blocks/button/_action/button_action_submit.css");
 @import url("./blocks/button/_action/button_action_more.css");
+@import url("./blocks/button/_action/button_action_edit.css");
+@import url("./blocks/button/_action/button_action_logout.css");
 
 @import url("./blocks/main/main.css");
 
@@ -89,6 +91,15 @@
 @import url("./blocks/movies-card/__save-button/_active/movies-card__save-button_active.css");
 @import url("./blocks/movies-card/__save-button/_saved/movies-card__save-button_saved.css");
 @import url("./blocks/movies-card/__photo/movies-card__photo.css");
+
+@import url("./blocks/profile/profile.css");
+@import url("./blocks/profile/__heading/profile__heading.css");
+@import url("./blocks/profile/__form/profile__form.css");
+@import url("./blocks/profile/__form-inputs/profile__form-inputs.css");
+@import url("./blocks/profile/__form-label/profile__form-label.css");
+@import url("./blocks/profile/__form-placeholder/profile__form-placeholder.css");
+@import url("./blocks/profile/__form-input/profile__form-input.css");
+@import url("./blocks/profile/__form-buttons/profile__form-buttons.css");
 
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/footer/__text/footer__text.css");

@@ -1,0 +1,9 @@
+.profile__form-input {
+  width: 122px;
+  border: none;
+  outline: none;
+  background-color: #202020;
+  color: white;
+  text-align: end;
+  font-weight: 400;
+}
