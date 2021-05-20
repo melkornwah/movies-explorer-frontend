@@ -11,6 +11,8 @@
 @import url("./blocks/button/button.css");
 @import url("./blocks/button/_action/button_action_register.css");
 @import url("./blocks/button/_action/button_action_login.css");
+@import url("./blocks/button/_action/button_action_submit.css");
+@import url("./blocks/button/_action/button_action_more.css");
 
 @import url("./blocks/main/main.css");
 
@@ -62,6 +64,30 @@
 @import url("./blocks/portfolio/__link-item/portfolio__link-item.css");
 @import url("./blocks/portfolio/__link-ref/portfolio__link-ref.css");
 @import url("./blocks/portfolio/__link-icon/portfolio__link-icon.css");
+
+@import url("./blocks/search-form/search-form.css");
+@import url("./blocks/search-form/__main-container/search-form__main-container.css");
+@import url("./blocks/search-form/__label/search-form__label.css");
+@import url("./blocks/search-form/__input/search-form__input.css");
+@import url("./blocks/search-form/__icon/search-form__icon.css");
+
+@import url("./blocks/filter-checkbox/filter-checkbox.css");
+@import url("./blocks/filter-checkbox/__text/filter-checkbox__text.css");
+
+@import url("./blocks/switch/switch.css");
+@import url("./blocks/switch/__checkbox/switch__checkbox.css");
+@import url("./blocks/switch/__slider/switch__slider.css");
+
+@import url("./blocks/movies-card-list/movies-card-list.css");
+
+@import url("./blocks/movies-card/movies-card.css");
+@import url("./blocks/movies-card/__head/movies-card__head.css");
+@import url("./blocks/movies-card/__info/movies-card__info.css");
+@import url("./blocks/movies-card/__heading/movies-card__heading.css");
+@import url("./blocks/movies-card/__length/movies-card__length.css");
+@import url("./blocks/movies-card/__save-button/movies-card__save-button.css");
+@import url("./blocks/movies-card/__save-button/_active/movies-card__save-button_active.css");
+@import url("./blocks/movies-card/__photo/movies-card__photo.css");
 
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/footer/__text/footer__text.css");
