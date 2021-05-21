@@ -21,7 +21,7 @@ function MoviesCardList(props) {
         }
       </ul>
       {
-        props.currentRoute === "saved"
+        props.currentRoute === "/saved-movies"
           ?
         <></>
           :

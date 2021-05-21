@@ -5,6 +5,7 @@
   background-color: rgba(0, 0, 0, 0);
   color: white;
   cursor: pointer;
+  text-decoration: none;
   transition: .5s;
 }
 

@@ -1,0 +1,9 @@
+.not-found {
+  width: 400px;
+  margin: 246px auto 60px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

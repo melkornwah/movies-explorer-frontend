@@ -27,7 +27,7 @@ function MoviesCard(props) {
           </p>
         </div>
         {
-          props.currentRoute === "saved"
+          props.currentRoute === "/saved-movies"
             ?
           <button className="movies-card__save-button movies-card__save-button_saved" onClick={handleDeleteClick} />
             :
