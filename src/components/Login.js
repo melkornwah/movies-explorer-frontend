@@ -6,9 +6,14 @@ function Login(props) {
     props.handleRedirectionAuth();
   };
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    props.handleRedirectionLogIn();
+  };
+
   return(
     <section className="login">
-      <form name="login" className="auth-form">
+      <form name="login" className="auth-form" onSubmit={handleSubmit}>
         <fieldset className="auth-form__inputs">
           <label className="auth-form__label">
             <p className="auth-form__input-name">

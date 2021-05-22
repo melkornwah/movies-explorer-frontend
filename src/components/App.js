@@ -16,7 +16,7 @@ import PageNotFound from "./PageNotFound";
 function App() {
   const history = useHistory();
 
-  const [isLoggedIn, setIsLoggedInState] = React.useState(true);
+  const [isLoggedIn, setIsLoggedInState] = React.useState(false);
   const [currentRoute, setCurrentRoute] = React.useState("/");
   const [currentRouteHeading, setCurrentRouteHeading] = React.useState("");
   const [preloaderState, setPreloaderState] = React.useState(false);
@@ -49,18 +49,43 @@ function App() {
     history.push("/profile");
     setCurrentRoute("/profile");
   };
+  const handleRedirectionNotFound = () => {
+    history.push(currentRoute);
+  };
+  const handleRedirectionLogout = () => {
+    history.push("/");
+    setCurrentRoute("/");
+    setIsLoggedInState(false);
+  };
+  const handleRedirectionSignIn = () => {
+    history.push("/signin");
+    setCurrentRoute("/signin");
+  };
+  const handleRedirectionSignUp = () => {
+    history.push("/signup");
+    setCurrentRoute("/signup");
+  };
+  const handleRedirectionLogIn = () => {
+    history.push("/movies");
+    setCurrentRoute("/movies");
+    setIsLoggedInState(true);
+  };
 
   return (
     <div className="App">
-      <Header
-        isLoggedIn={isLoggedIn}
-        currentRoute={currentRoute}
-        currentRouteHeading={currentRouteHeading}
-        handleRedirectionMain={handleRedirectionMain}
-        handleRedirectionMovies={handleRedirectionMovies}
-        handleRedirectionSavedMovies={handleRedirectionSavedMovies}
-        handleRedirectionProfile={handleRedirectionProfile}
-      />
+      {
+        <Header
+          isLoggedIn={isLoggedIn}
+          currentRoute={currentRoute}
+          currentRouteHeading={currentRouteHeading}
+          handleRedirectionMain={handleRedirectionMain}
+          handleRedirectionMovies={handleRedirectionMovies}
+          handleRedirectionSavedMovies={handleRedirectionSavedMovies}
+          handleRedirectionProfile={handleRedirectionProfile}
+          handleRedirectionSignIn={handleRedirectionSignIn}
+          handleRedirectionSignUp={handleRedirectionSignUp}
+        />
+      }
       <Switch>
         <Route exact path={"/"}>
           <Main />
@@ -85,18 +110,26 @@ function App() {
           exact path="/profile"
           component={Profile}
           isLoggedIn={isLoggedIn}
+          handleRedirectionLogout={handleRedirectionLogout}
         />
         <Route exact path={"/signup"}>
           <Register
             handleRedirectionAuth={handleRedirectionAuth}
+            handleRedirectionLogIn={handleRedirectionLogIn}
           />
         </Route>
         <Route exact path={"/signin"}>
           <Login
             handleRedirectionAuth={handleRedirectionAuth}
+            handleRedirectionLogIn={handleRedirectionLogIn}
           />
         </Route>
-        <Route path="*" component={PageNotFound} />
+        <Route path="*">
+          <PageNotFound
+            component={PageNotFound}
+            handleRedirectionNotFound={handleRedirectionNotFound}
+          />
+        </Route>
       </Switch>
       {
         <Footer

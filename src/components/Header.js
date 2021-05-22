@@ -12,6 +12,10 @@ function Header(props) {
       ||
     props.currentRoute === "/saved-movies"
       ||
+    props.currentRoute === "/signup"
+      ||
+    props.currentRoute === "/signin"
+      ||
     props.currentRoute === "/";
 
   const handleRedirectionMain = () => {
@@ -43,6 +47,8 @@ function Header(props) {
                 handleRedirectionMovies={props.handleRedirectionMovies}
                 handleRedirectionSavedMovies={props.handleRedirectionSavedMovies}
                 handleRedirectionProfile={props.handleRedirectionProfile}
+                handleRedirectionSignIn={props.handleRedirectionSignIn}
+                handleRedirectionSignUp={props.handleRedirectionSignUp}
               />
             </header>
           }
