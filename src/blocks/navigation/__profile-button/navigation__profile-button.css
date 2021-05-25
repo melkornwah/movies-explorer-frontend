@@ -1,0 +1,12 @@
+.navigation__profile-button {
+  background-image: url("../../../images/header__profile-button.png");
+  background-color: #313131;
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 8px 7.25px 8px 7.25px;
+  width: 11.5px;
+  height: 14px;
+  margin: 0 0 0 17px;
+  border-radius: 4px;
+}

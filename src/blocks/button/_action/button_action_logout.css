@@ -1,0 +1,14 @@
+.button_action_logout {
+  margin: 0;
+  color: #ee3465;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15.73px;
+}
+
+@media screen and (max-width: 767px) {
+  .button_action_logout {
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+}

@@ -1,0 +1,7 @@
+.movies-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 14px 0 14px 14px;
+}

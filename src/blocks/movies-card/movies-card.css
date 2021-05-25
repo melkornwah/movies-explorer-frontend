@@ -1,0 +1,19 @@
+.movies-card {
+  width: 364px;
+  display: flex;
+  flex-direction: column;
+  background-color: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, .08);
+}
+
+@media screen and (max-width: 1279px) {
+  .movies-card {
+    width: 339px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .movies-card {
+    width: 300px;
+  }
+}

@@ -1,0 +1,25 @@
+.promo__heading {
+  margin: 160px auto 151px auto;
+  padding: 0;
+  width: 730px;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+}
+
+@media screen and (max-width: 1279px) {
+  .promo__heading {
+    margin: 350px auto 314px auto;
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .promo__heading {
+    width: 292px;
+    font-size: 29px;
+    line-height: 37px;
+    margin: 220px 0 212px 0;
+  }
+}

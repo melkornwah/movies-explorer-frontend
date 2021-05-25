@@ -1,0 +1,7 @@
+.movies-card__head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: start;
+}

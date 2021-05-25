@@ -1,0 +1,16 @@
+.timeline-front {
+  width: 912px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1279px) {
+  .timeline-front {
+    width: 528px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .timeline-front {
+    width: 184px;
+  }
+}

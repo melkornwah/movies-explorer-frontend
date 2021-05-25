@@ -1,0 +1,23 @@
+.about-me__info-heading {
+  width: 100%;
+  margin: 0 0 18px 0;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+}
+
+@media screen and (max-width: 1279px) {
+  .about-me__info-heading {
+    margin-bottom: 16px;
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-me__info-heading {
+    margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 36.31px;
+  }
+}

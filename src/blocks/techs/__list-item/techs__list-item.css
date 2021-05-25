@@ -1,0 +1,31 @@
+.techs__list-item {
+  width: 90px;
+  background-color: #303030;
+  padding: 21px 26px 21px 26px;
+  margin: 0 10px 0 0;
+  border-radius: 10px;
+  cursor: default;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+}
+
+.techs__list-item:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .techs__list-item {
+    width: 84px;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs__list-item {
+    width: 53px;
+    margin: 0;
+    padding: 21px 16px 21px 15px;
+  }
+}

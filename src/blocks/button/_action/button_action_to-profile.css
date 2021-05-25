@@ -1,0 +1,20 @@
+.button_action_to-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 0 50px;
+}
+
+@media screen and (max-width: 1279px) {
+  .button_action_to-profile {
+    justify-self: flex-end;
+    margin: 0 0 92px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button_action_to-profile {
+    margin-bottom: 48px;
+  }
+}

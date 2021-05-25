@@ -1,0 +1,12 @@
+.header__heading {
+  margin: 22px 0 0 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.05px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__heading {
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,13 @@
+.navigation__main-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 1279px) {
+  .navigation__main-links {
+    flex-direction: column;
+  }
+}

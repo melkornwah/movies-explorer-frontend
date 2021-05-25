@@ -1,0 +1,11 @@
+.auth-form__redirect {
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 767px) {
+  .auth-form__redirect {
+    margin-top: 14px;
+  }
+}

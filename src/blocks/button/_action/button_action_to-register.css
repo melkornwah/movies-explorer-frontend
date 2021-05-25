@@ -1,0 +1,13 @@
+.button_action_to-register {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .button_action_to-register {
+    font-size: 10px;
+  }
+}

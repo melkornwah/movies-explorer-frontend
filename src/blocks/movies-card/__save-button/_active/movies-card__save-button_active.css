@@ -1,0 +1,4 @@
+.movies-card__save-button_active {
+  background-image: url("../../../../images/movies-card__save-button_active.png");
+  border-radius: 36px;
+}

@@ -1,0 +1,16 @@
+.auth-form__inputs {
+  width: 396px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .auth-form__inputs {
+    width: 260px;
+  }
+}

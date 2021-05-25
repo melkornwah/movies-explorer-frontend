@@ -1,0 +1,15 @@
+.portfolio__link-icon {
+  background-image: url("../../../images/portfolio__link-icon.png");
+  width: 29px;
+  height: 60px;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__link-icon {
+    width: 18px;
+    height: 28px;
+  }
+}

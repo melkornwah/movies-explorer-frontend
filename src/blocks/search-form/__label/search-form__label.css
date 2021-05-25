@@ -1,0 +1,14 @@
+.search-form__label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1087.35px;
+  cursor: text;
+}
+
+@media screen and (max-width: 767px) {
+  .search-form__label {
+    width: 237.35px;
+  }
+}

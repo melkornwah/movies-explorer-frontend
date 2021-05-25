@@ -1,0 +1,22 @@
+.button_action_more {
+  margin: 0 0 80px 0;
+  padding: 10px 0 10px 0;
+  width: 1140px;
+  background-color: #2f2f2f;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.52px;
+}
+
+@media screen and (max-width: 1279px) {
+  .button_action_more {
+    width: 708px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button_action_more {
+    width: 300px;
+  }
+}

@@ -1,0 +1,24 @@
+.navigation__open-button {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .navigation__open-button {
+    display: inline;
+    width: 44px;
+    height: 44px;
+    background-color: inherit;
+    border: none;
+    background-image: url("../../../images/header__menu-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: .5s;
+  }
+
+  .navigation__open-button:hover {
+    opacity: .6;
+    transition: .5s;
+  }
+}

@@ -1,0 +1,20 @@
+.button_action_to-login {
+  width: 76px;
+  margin: 0 0 0 30px;
+  padding: 8px 0 8px 0;
+  text-align: center;
+  background-color: #3DDC84;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .button_action_to-login {
+    margin-left: 14px;
+    padding: 5px 0 5px 0;
+    font-size: 10px;
+    width: 54px;
+  }
+}

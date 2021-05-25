@@ -1,0 +1,15 @@
+.techs__main-container {
+  padding: 90px 225px 100px 225px;
+}
+
+@media screen and (max-width: 1279px) {
+  .techs__main-container {
+    padding: 80px 10px 90px 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs__main-container {
+    padding: 60px 0 70px 0;
+  }
+}

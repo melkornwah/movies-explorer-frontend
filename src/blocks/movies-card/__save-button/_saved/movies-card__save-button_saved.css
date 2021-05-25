@@ -1,0 +1,8 @@
+.movies-card__save-button_saved {
+  background-image: url("../../../../images/movies-card__save-button_saved.png");
+  border-radius: 36px;
+}
+
+.movies-card__save-button_saved:hover {
+  transform: rotate(90deg);
+}
