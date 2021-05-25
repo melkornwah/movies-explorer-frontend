@@ -1,5 +1,4 @@
 .search-form__input {
-  width: fit-content;
   text-align: center;
   margin: 0 auto 0 auto;
   border: none;
@@ -13,4 +12,12 @@
 .search-form__input:focus {
   outline: none;
   border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .search-form__input {
+    text-align: start;
+    width: 212px;
+    margin: 0;
+  }
 }

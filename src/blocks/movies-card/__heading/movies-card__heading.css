@@ -9,3 +9,15 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 1279px) {
+  .movies-card__heading {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movies-card__heading {
+    width: 210px;
+  }
+}

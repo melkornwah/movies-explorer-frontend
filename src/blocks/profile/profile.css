@@ -1,7 +1,19 @@
 .profile {
-  margin: 74px 435px 70px 435px;
+  margin: 74px auto 70px auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile {
+    margin: 236px auto 269px auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    margin: 70px auto 40px auto;
+  }
 }

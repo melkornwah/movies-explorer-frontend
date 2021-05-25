@@ -6,3 +6,18 @@
   width: 396px;
   margin: 52px auto 40px auto;
 }
+
+@media screen and (max-width: 1279px) {
+  .header_route_auth {
+    margin-top: 214px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header_route_auth {
+    width: 260px;
+    justify-content: center;
+    align-items: center;
+    margin: 56px auto 80px auto;
+  }
+}

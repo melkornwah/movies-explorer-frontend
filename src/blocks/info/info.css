@@ -3,3 +3,21 @@
   margin: 0 40px 0 0;
   padding: 0;
 }
+
+.info:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .info {
+    margin-right: 30px;
+    width: 319px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .info {
+    margin: 0 0 56px 0;
+    width: 284px;
+  }
+}

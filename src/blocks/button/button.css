@@ -7,9 +7,20 @@
   cursor: pointer;
   text-decoration: none;
   transition: .5s;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 .button:hover {
   opacity: .6;
   transition: .5s;
+}
+
+@media screen and (max-width: 1279px) {
+  .button {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.78px;
+  }
 }

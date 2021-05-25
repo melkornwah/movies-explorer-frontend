@@ -1,3 +1,13 @@
 .about-me__ref-item {
   margin: 0 20px 0 0;
 }
+
+.about-me__ref-item:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .about-me__ref-item {
+    margin-right: 26px;
+  }
+}

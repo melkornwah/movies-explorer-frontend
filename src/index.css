@@ -10,18 +10,29 @@
 @import url("./blocks/header/__heading/header_heading.css");
 
 @import url("./blocks/navigation/navigation.css");
+@import url("./blocks/navigation/__popup/nagivation__popup.css");
+@import url("./blocks/navigation/__popup/_is_opened/navigation__popup_is-opened.css");
+@import url("./blocks/navigation/__overlay/navigation__overlay.css");
+@import url("./blocks/navigation/__overlay/_is-active/navigation__overlay_is-active.css");
 @import url("./blocks/navigation/__profile-button/navigation__profile-button.css");
+@import url("./blocks/navigation/__open-button/navigation__open-button.css");
+@import url("./blocks/navigation/__open-button/_active/navigation__open-button_active.css");
+@import url("./blocks/navigation/__menu/navigation__menu.css");
+@import url("./blocks/navigation/__menu/_is-opened/navigation__menu_is-opened.css");
+@import url("./blocks/navigation/__close-button/navigation__close-button.css");
+@import url("./blocks/navigation/__main-links/navigation__main-links.css");
 
 @import url("./blocks/button/button.css");
-@import url("./blocks/button/_action/button_action_register.css");
-@import url("./blocks/button/_action/button_action_login.css");
+@import url("./blocks/button/_action/button_action_to-register.css");
+@import url("./blocks/button/_action/button_action_to-login.css");
 @import url("./blocks/button/_action/button_action_submit.css");
 @import url("./blocks/button/_action/button_action_more.css");
 @import url("./blocks/button/_action/button_action_edit.css");
 @import url("./blocks/button/_action/button_action_logout.css");
-@import url("./blocks/button/_action/button_action_movies.css");
-@import url("./blocks/button/_action/button_action_saves-movies.css");
-@import url("./blocks/button/_action/button_action_profile.css");
+@import url("./blocks/button/_action/button_action_to-movies.css");
+@import url("./blocks/button/_action/button_action_to-saves-movies.css");
+@import url("./blocks/button/_action/button_action_to-profile.css");
+@import url("./blocks/button/_action/button_action_to-main.css");
 
 @import url("./blocks/main/main.css");
 
@@ -32,6 +43,7 @@
 @import url("./blocks/nav-tab/__link/nav-tab__link.css");
 
 @import url("./blocks/section-heading/section-heading.css");
+@import url("./blocks/section-heading/_long/section-heading_long.css");
 
 @import url("./blocks/about-project/about-project.css");
 @import url("./blocks/about-project/__info/about-project__info.css");
@@ -120,6 +132,7 @@
 @import url("./blocks/auth-form/__error-message/auth-form__error-message.css");
 @import url("./blocks/auth-form/__error-message/_active/auth-form__error-message_active.css");
 @import url("./blocks/auth-form/__submit-button/auth-form__submit-button.css");
+@import url("./blocks/auth-form/__submit-button/_login/auth-form__submit-button_login.css");
 @import url("./blocks/auth-form/__redirect/auth-form__redirect.css");
 @import url("./blocks/auth-form/__redirect-text/auth-form__redirect-text.css");
 @import url("./blocks/auth-form/__redirect-button/auth-form__redirect-button.css");

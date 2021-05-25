@@ -1,5 +1,14 @@
 .profile__form-placeholder {
   width: 141px;
-  margin: 0 147px 0 0;
+  margin: 0;
   text-align: start;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.31px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__form-placeholder {
+    width: 130px;
+  }
 }

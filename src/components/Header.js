@@ -16,6 +16,8 @@ function Header(props) {
       ||
     props.currentRoute === "/signin"
       ||
+    props.currentRoute === "/profile"
+      ||
     props.currentRoute === "/";
 
   const handleRedirectionMain = () => {
@@ -34,8 +36,14 @@ function Header(props) {
             <header className="header header_route_auth">
               <button className="header__logo" onClick={handleRedirectionMain} />
                 {
+                  props.currentRoute === "/signup"
+                    ?
                   <h2 className="header__heading">
-                    {props.currentRouteHeading}
+                    Добро пожаловать!
+                  </h2>
+                    :
+                  <h2 className="header__heading">
+                    Рады видеть!
                   </h2>
                 }
             </header>
@@ -49,6 +57,7 @@ function Header(props) {
                 handleRedirectionProfile={props.handleRedirectionProfile}
                 handleRedirectionSignIn={props.handleRedirectionSignIn}
                 handleRedirectionSignUp={props.handleRedirectionSignUp}
+                handleRedirectionMain={handleRedirectionMain}
               />
             </header>
           }

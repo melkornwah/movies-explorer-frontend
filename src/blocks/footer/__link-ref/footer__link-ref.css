@@ -11,3 +11,10 @@
   opacity: .6;
   transition: .5s;
 }
+
+@media screen and (max-width: 767px) {
+  .footer__link-ref {
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+}

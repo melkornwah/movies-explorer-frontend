@@ -1,0 +1,12 @@
+.navigation__menu_is-opened {
+  left: 50%;
+  transform: translate(-26.25%);
+  visibility: visible;
+}
+
+@media screen and (max-width: 767px) {
+  .navigation__menu_is-opened {
+    width: 320px;
+    transform: translate(-50%);
+  }
+}

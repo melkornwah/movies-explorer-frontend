@@ -3,8 +3,8 @@ import Portfolio from "./Portfolio";
 
 function AboutMe(props) {
   return(
-    <section className="about-me">
-      <h2 className="section-heading">
+    <section className="about-me" id="about-me">
+      <h2 className="section-heading section-heading_long">
         Студент
       </h2>
       <div className="about-me__info">
@@ -18,7 +18,7 @@ function AboutMe(props) {
           <p className="about-me__info-bio">
             Я вырос и живу в Санкт-Петербурге,
             после школы, отучился полтора года в СПБГУТ им. Бонч-Бруевича
-            на специальности "Программная инжерения".
+            на специальности "Программная инженерия".
             Обожаю видеоигры, музыку и книги, очень нравится скалолазание.
             После знакомства с Яндекс.Практикумом, начал писать код.
             Параллельно написанию дипломной работы, ищу основную работу,

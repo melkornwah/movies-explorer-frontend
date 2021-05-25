@@ -1,0 +1,19 @@
+.navigation__overlay {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .navigation__overlay {
+    display: inline;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 2;
+    opacity: 0;
+    transition: visibility .5s, opacity .5s linear;
+  }
+}

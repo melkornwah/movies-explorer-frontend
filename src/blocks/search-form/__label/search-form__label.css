@@ -6,3 +6,9 @@
   width: 1087.35px;
   cursor: text;
 }
+
+@media screen and (max-width: 767px) {
+  .search-form__label {
+    width: 237.35px;
+  }
+}

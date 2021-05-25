@@ -9,6 +9,7 @@
   font-weight: 500;
   line-height: 13.31px;
   cursor: text;
+  width: 100%;
 }
 
 .profile__form-label:last-child {

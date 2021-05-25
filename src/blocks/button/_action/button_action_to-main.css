@@ -1,0 +1,10 @@
+.button_action_to-main {
+  display: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .button_action_to-main {
+    display: inline;
+  }
+}

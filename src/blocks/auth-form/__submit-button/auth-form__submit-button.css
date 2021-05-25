@@ -14,3 +14,13 @@
   opacity: .6;
   transition: .5s;
 }
+
+@media screen and (max-width: 767px) {
+  .auth-form__submit-button {
+    margin-top: 157px;
+    padding: 15px 68px 15px 67px;
+    width: 260px;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+}

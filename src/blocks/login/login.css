@@ -6,3 +6,16 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 1279px) {
+  .login {
+    margin-bottom: 232px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .login {
+    width: 320px;
+    margin-bottom: 30px;
+  }
+}

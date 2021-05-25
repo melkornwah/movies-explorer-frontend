@@ -3,3 +3,10 @@
   flex-direction: row;
   margin: 66px 0 0 0;
 }
+
+@media screen and (max-width: 767px) {
+  .about-me__info {
+    margin-top: 66px;
+    flex-direction: column-reverse;
+  }
+}

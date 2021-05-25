@@ -19,3 +19,16 @@
   opacity: .6;
   transition: .5s;
 }
+
+@media screen and (max-width: 1279px) {
+  .portfolio__link-ref {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__link-ref {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

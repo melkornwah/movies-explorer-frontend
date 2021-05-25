@@ -19,7 +19,7 @@ function Footer(props) {
           </p>
           <div className="footer__main-container">
             <p className="footer__copyright">
-              © 2021 Владимир Чистый
+              © 2021
             </p>
             <ul className="footer__links">
               <li className="footer__link-item">
