@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Profile(props) {
   const user = React.useContext(CurrentUserContext);
 
-  const [nameValue, setNameValue] = React.useState("");
-  const [emailValue, setEmailValue] = React.useState("");
+  const [nameValue, setNameValue] = React.useState(`${user.name}`);
+  const [emailValue, setEmailValue] = React.useState(`${user.email}`);
 
   const handleNameChange = (evt) => {
     setNameValue(evt.target.value);
@@ -16,8 +16,8 @@ function Profile(props) {
     setEmailValue(evt.target.value);
   };
 
-  const handleRedirectionLogout = () => {
-    props.handleRedirectionLogout();
+  const handleLogout = () => {
+    props.handleLogout();
   };
 
   const handleSubmit = (evt) => {
@@ -27,6 +27,8 @@ function Profile(props) {
       email: emailValue
     })
   };
+
+  React.useEffect(() =>{}, [user]);
 
   return(
     <section className="profile">
@@ -39,20 +41,20 @@ function Profile(props) {
             <p className="profile__form-placeholder">
               Имя
             </p>
-            <input className="profile__form-input" name="name" type="text" placeholder={user.name} onChange={handleNameChange} />
+            <input className="profile__form-input" name="name" type="text" value={nameValue} onChange={handleNameChange} />
           </label>
           <label className="profile__form-label">
             <p className="profile__form-placeholder">
               Почта
             </p>
-            <input className="profile__form-input" name="email" type="email" placeholder={user.email} onChange={handleEmailChange} />
+            <input className="profile__form-input" name="email" type="email" value={emailValue} onChange={handleEmailChange} />
           </label>
         </fieldset>
         <div className="profile__form-buttons">
           <button className="button button_action_edit" type="submit">
             Редактировать
           </button>
-          <Link className="button button_action_logout" onClick={handleRedirectionLogout}>
+          <Link className="button button_action_logout" to="/" onClick={handleLogout}>
             Выйти из аккаунта
           </Link>
         </div>

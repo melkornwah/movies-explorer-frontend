@@ -2,24 +2,6 @@ import React from "react";
 import Navigation from "./Navigation";
 
 function Header(props) {
-  const isAuth =
-  props.currentRoute === "/signup"
-    ||
-  props.currentRoute === "/signin";
-
-  const currentRoute =
-    props.currentRoute === "/movies"
-      ||
-    props.currentRoute === "/saved-movies"
-      ||
-    props.currentRoute === "/signup"
-      ||
-    props.currentRoute === "/signin"
-      ||
-    props.currentRoute === "/profile"
-      ||
-    props.currentRoute === "/";
-
   const handleRedirectionMain = () => {
     props.handleRedirectionMain();
   };
@@ -27,16 +9,16 @@ function Header(props) {
   return(
     <>
       {
-        currentRoute
+        props.currentRoute
           ?
         <>
           {
-            isAuth
+            props.isAuth
               ?
             <header className="header header_route_auth">
               <button className="header__logo" onClick={handleRedirectionMain} />
                 {
-                  props.currentRoute === "/signup"
+                  window.location.href === `${props.BASE_URL}/signup`
                     ?
                   <h2 className="header__heading">
                     Добро пожаловать!
@@ -52,12 +34,6 @@ function Header(props) {
               <button className="header__logo" onClick={handleRedirectionMain} />
               <Navigation
                 isLoggedIn={props.isLoggedIn}
-                handleRedirectionMovies={props.handleRedirectionMovies}
-                handleRedirectionSavedMovies={props.handleRedirectionSavedMovies}
-                handleRedirectionProfile={props.handleRedirectionProfile}
-                handleRedirectionSignIn={props.handleRedirectionSignIn}
-                handleRedirectionSignUp={props.handleRedirectionSignUp}
-                handleRedirectionMain={handleRedirectionMain}
               />
             </header>
           }

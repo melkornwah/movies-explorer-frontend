@@ -13,89 +13,110 @@ import Register from "./Register";
 import Login from "./Login";
 import PageNotFound from "./PageNotFound";
 import { CurrentUserContext} from "../contexts/CurrentUserContext";
-import { signUp, signIn, authenticate } from "../utils/MainApi";
+import {
+  signUp,
+  signIn,
+  authenticate,
+  updateUser,
+  getCurrentUser
+} from "../utils/MainApi";
 
 function App() {
   const history = useHistory();
+  const BASE_URL = "http://localhost:3000";
+  const isAuth =
+    window.location.href === `${BASE_URL}/signup`
+      ||
+    window.location.href === `${BASE_URL}/signin`;
+
+  const currentRoute =
+    window.location.href === `${BASE_URL}/`
+        ||
+    window.location.href === `${BASE_URL}/movies`
+        ||
+    window.location.href === `${BASE_URL}/saved-movies`
+        ||
+    window.location.href === `${BASE_URL}/profile`
+        ||
+    window.location.href === `${BASE_URL}/signup`
+        ||
+    window.location.href === `${BASE_URL}/signin`;
 
   const [isLoggedIn, setIsLoggedInState] = React.useState(false);
-  const [currentRoute, setCurrentRoute] = React.useState("/");
   const [preloaderState, setPreloaderState] = React.useState(false);
   const [user, setUser] = React.useState({});
+  const [formError, setFormErrorState] = React.useState(false);
   const [token, setTokenValue] = React.useState("");
 
-  const handleRedirectionAuth = () => {
-    if (currentRoute === "/signup") {
-      setCurrentRoute("/signin");
-      history.push("/signin");
-    }
-    else if (currentRoute === "/signin") {
-      setCurrentRoute("/signup");
-      history.push("/signup");
-    }
-  };
-  const handleRedirectionMain = () => {
-    history.push("/");
-    setCurrentRoute("/");
-  };
-  const handleRedirectionMovies = () => {
-    setCurrentRoute("/movies");
-    history.push("/movies");
-  };
-  const handleRedirectionSavedMovies = () => {
-    setCurrentRoute("/saved-movies");
-    history.push("/saved-movies");
-  };
-  const handleRedirectionProfile = () => {
-    setCurrentRoute("/profile");
-    history.push("/profile");
-  };
-  const handleRedirectionNotFound = () => {
-    history.push(currentRoute);
-  };
-  const handleRedirectionLogout = () => {
+  const handleLogout = () => {
     localStorage.removeItem("jwt");
-    setCurrentRoute("/");
     setIsLoggedInState(false);
     history.push("/");
   };
-  const handleRedirectionSignIn = () => {
-    setCurrentRoute("/signin");
-    history.push("/signin");
+
+  const handleRedirectionNotFound = () => {
+    history.goBack();
   };
-  const handleRedirectionSignUp = () => {
-    setCurrentRoute("/signup");
-    history.push("/signup");
-  };
-  const handleLogIn = (formData) => {
-    setUser(formData);
+
+  const handleLogIn = () => {
     setIsLoggedInState(true);
-    setCurrentRoute("/movies");
     history.push("/movies");
   };
 
+  const getUser = () => {
+    if (isLoggedIn) {
+      getCurrentUser(token)
+      .then(res => {
+        setUser(res);
+      })
+      .catch(err => console.log(err))
+    }
+  };
+
   const handleUserUpdate = (formData) => {
-    setUser(formData);
+    updateUser(formData)
+      .then(res => {
+        if (!(res === undefined)) {
+          setUser(res);
+        }
+      })
+      .catch(err => {
+        setFormErrorState(true);
+        console.log(err);
+      })
   };
 
   const handleSignUp = (data) => {
     signUp(data)
       .then(res => {
         if (!(res === undefined)) {
-          handleLogIn(res);
+          handleSignIn(data);
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        setFormErrorState(true);
+        console.log(err)
+      })
   };
 
   const handleSignIn = (data) => {
     signIn(data)
       .then(res => {
         if (!(res === undefined)) {
-          handleLogIn(data);
+          changeToken(res.token);
         }
       })
-      .catch(err => console.log(err))
+      .then(() => {
+        handleLogIn();
+      })
+      .catch(err => {
+        setFormErrorState(true);
+        console.log(err)
+      })
+  };
+
+  const changeToken = (value) => {
+    setTokenValue(`${value}`);
   };
 
   const tokenCheck = () => {
@@ -112,6 +133,10 @@ function App() {
   };
 
   React.useEffect(() => {
+    getUser();
+  }, [isLoggedIn]);
+
+  React.useEffect(() => {
     tokenCheck();
   }, []);
 
@@ -121,12 +146,8 @@ function App() {
         <Header
           isLoggedIn={isLoggedIn}
           currentRoute={currentRoute}
-          handleRedirectionMain={handleRedirectionMain}
-          handleRedirectionMovies={handleRedirectionMovies}
-          handleRedirectionSavedMovies={handleRedirectionSavedMovies}
-          handleRedirectionProfile={handleRedirectionProfile}
-          handleRedirectionSignIn={handleRedirectionSignIn}
-          handleRedirectionSignUp={handleRedirectionSignUp}
+          isAuth={isAuth}
+          BASE_URL={BASE_URL}
         />
         <Switch>
           <Route exact path={"/"}>
@@ -153,18 +174,19 @@ function App() {
             component={Profile}
             isLoggedIn={isLoggedIn}
             handleUserUpdate={handleUserUpdate}
-            handleRedirectionLogout={handleRedirectionLogout}
+            handleLogout={handleLogout}
+            formError={formError}
           />
           <Route exact path={"/signup"}>
             <Register
-              handleRedirectionAuth={handleRedirectionAuth}
               handleLogIn={handleSignUp}
+              formError={formError}
             />
           </Route>
           <Route exact path={"/signin"}>
             <Login
-              handleRedirectionAuth={handleRedirectionAuth}
               handleLogIn={handleSignIn}
+              formError={formError}
             />
           </Route>
           <Route path="*">

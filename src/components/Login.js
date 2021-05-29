@@ -49,7 +49,7 @@ function Login(props) {
           <p className="auth-form__redirect-text">
             Ещё не зарегистрированы?
           </p>
-          <Link className="auth-form__redirect-button" type="button" onClick={handleRedirection}>
+          <Link className="auth-form__redirect-button" type="button" to="/signup">
             Регистрация
           </Link>
         </div>

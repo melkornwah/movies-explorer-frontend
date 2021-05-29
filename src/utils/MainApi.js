@@ -4,18 +4,13 @@ const getOptions = (data) => {
   const options = {
     method: "POST",
     headers: {
-      "Authorization": `${localStorage.jwt}`,
       "Accept": "application/json",
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      "name": data.name,
-      "password": data.password,
-      "email": data.email
-    })
+    body: JSON.stringify(data)
   }
   return options;
-}
+};
 
 export const signUp = (data) => {
   const body = {
@@ -27,17 +22,14 @@ export const signUp = (data) => {
   return fetch(`${BASE_URL}/signup`, getOptions(body))
   .then((response) => {
     try {
-      if (response.status === 201){
+      if (response.status === 200){
         return response.json();
       }
-    } catch(e){
-      return (e);
+    } catch(err){
+      return (err);
     }
   })
-  .then((res) => {
-    return res;
-  })
-  .catch((err) => console.log(err));
+  .catch(err => console.log(err));
 };
 
 export const signIn = (data) => {
@@ -63,14 +55,45 @@ export const authenticate = (token) => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`
     }
   })
   .then(res => {
     return res.json();
   })
-  .then(data => {
-    return data;
-  })
   .catch(err => console.log(err))
+};
+
+export const updateUser = (data, token) => {
+  const body = {
+    "name": data.name,
+    "email": data.email
+  };
+
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: body
+  })
+    .then(res => {
+      return res.json();
+    })
+    .catch(err => console.log(err))
+};
+
+export const getCurrentUser = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      return res.json();
+    })
+    .catch(err => console.log(err))
 };

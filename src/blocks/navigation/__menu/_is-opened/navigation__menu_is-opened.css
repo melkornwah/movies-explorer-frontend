@@ -2,6 +2,7 @@
   left: 50%;
   transform: translate(-26.25%);
   visibility: visible;
+  transition: .5s;
 }
 
 @media screen and (max-width: 767px) {

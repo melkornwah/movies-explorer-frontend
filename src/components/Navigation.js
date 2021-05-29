@@ -4,34 +4,6 @@ import { Link } from 'react-router-dom';
 function Navigation(props) {
   const [isNavOpened, setIsNavOpenedState] = React.useState(false);
 
-  const handleRedirectionMovies = () => {
-    props.handleRedirectionMovies();
-    handleCloseMenuClick();
-  };
-
-  const handleRedirectionSavedMovies = () => {
-    props.handleRedirectionSavedMovies();
-    handleCloseMenuClick();
-  };
-
-  const handleRedirectionProfile = () => {
-    props.handleRedirectionProfile();
-    handleCloseMenuClick();
-  };
-
-  const handleRedirectionSignIn = () => {
-    props.handleRedirectionSignIn();
-  };
-
-  const handleRedirectionSignUp = () => {
-    props.handleRedirectionSignUp();
-  };
-
-  const handleRedirectionMain = () => {
-    props.handleRedirectionMain();
-    handleCloseMenuClick();
-  };
-
   const handleOpenMenuClick = () => {
     setIsNavOpenedState(true);
   };
@@ -56,17 +28,17 @@ function Navigation(props) {
               <div className="navigation__menu navigation__menu_is-opened">
                 <div className="navigation__main-links">
                   <button className="navigation__close-button" type="button" onClick={handleCloseMenuClick} />
-                  <Link className="button button_action_to-main" to="/" onClick={handleRedirectionMain}>
+                  <Link className="button button_action_to-main" to="/" onClick={handleCloseMenuClick}>
                     Главная
                   </Link>
-                  <Link className="button button_action_to-movies" to="/movies" onClick={handleRedirectionMovies}>
+                  <Link className="button button_action_to-movies" to="/movies" onClick={handleCloseMenuClick}>
                     Фильмы
                   </Link>
-                  <Link className="button button_action_to-saved-movies" to="/saved-movies" onClick={handleRedirectionSavedMovies}>
+                  <Link className="button button_action_to-saved-movies" to="/saved-movies" onClick={handleCloseMenuClick}>
                     Сохранённые фильмы
                   </Link>
                 </div>
-                <Link className="button button_action_to-profile" to="/profile" onClick={handleRedirectionProfile}>
+                <Link className="button button_action_to-profile" to="/profile" onClick={handleCloseMenuClick}>
                   Аккаунт
                   <div className="navigation__profile-button" />
                 </Link>
@@ -78,18 +50,18 @@ function Navigation(props) {
               <div className="navigation__overlay" />
               <div className="navigation__menu">
                 <div className="navigation__main-links">
-                  <button className="navigation__close-button" type="button" onClick={handleCloseMenuClick} />
-                  <Link className="button button_action_to-main" to="/" onClick={handleRedirectionMain}>
+                  <button className="navigation__close-button" type="button"/>
+                  <Link className="button button_action_to-main" to="/">
                     Главная
                   </Link>
-                  <Link className="button button_action_to-movies" to="/movies" onClick={handleRedirectionMovies}>
+                  <Link className="button button_action_to-movies" to="/movies">
                     Фильмы
                   </Link>
-                  <Link className="button button_action_to-saved-movies" to="/saved-movies" onClick={handleRedirectionSavedMovies}>
+                  <Link className="button button_action_to-saved-movies" to="/saved-movies">
                     Сохранённые фильмы
                   </Link>
                 </div>
-                <Link className="button button_action_to-profile" to="/profile" onClick={handleRedirectionProfile}>
+                <Link className="button button_action_to-profile" to="/profile">
                   Аккаунт
                   <div className="navigation__profile-button" />
                 </Link>
@@ -100,10 +72,10 @@ function Navigation(props) {
         </>
           :
         <>
-          <Link className="button button_action_to-register" to="/signup" onClick={handleRedirectionSignUp}>
+          <Link className="button button_action_to-register" to="/signup">
             Регистрация
           </Link>
-          <Link className="button button_action_to-login" to="/signin" onClick={handleRedirectionSignIn}>
+          <Link className="button button_action_to-login" to="/signin">
             Войти
           </Link>
         </>
