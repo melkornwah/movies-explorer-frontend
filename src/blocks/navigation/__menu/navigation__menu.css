@@ -26,14 +26,8 @@
   }
 }
 
-@media screen and (max-height: 720px) {
+@media screen and (height: 653px) {
   .navigation__menu {
-    height: 145vh;
-  }
-}
-
-@media screen and (max-height: 540px) {
-  .navigation__menu {
-    height: 110vh;
+    height: 115vh;
   }
 }
