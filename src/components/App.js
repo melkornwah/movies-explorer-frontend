@@ -13,6 +13,7 @@ import Register from "./Register";
 import Login from "./Login";
 import PageNotFound from "./PageNotFound";
 import { CurrentUserContext} from "../contexts/CurrentUserContext";
+import { signUp, signIn, authenticate } from "../utils/MainApi";
 
 function App() {
   const history = useHistory();
@@ -21,15 +22,16 @@ function App() {
   const [currentRoute, setCurrentRoute] = React.useState("/");
   const [preloaderState, setPreloaderState] = React.useState(false);
   const [user, setUser] = React.useState({});
+  const [token, setTokenValue] = React.useState("");
 
   const handleRedirectionAuth = () => {
     if (currentRoute === "/signup") {
-      history.push("/signin");
       setCurrentRoute("/signin");
+      history.push("/signin");
     }
     else if (currentRoute === "/signin") {
-      history.push("/signup");
       setCurrentRoute("/signup");
+      history.push("/signup");
     }
   };
   const handleRedirectionMain = () => {
@@ -37,43 +39,81 @@ function App() {
     setCurrentRoute("/");
   };
   const handleRedirectionMovies = () => {
-    history.push("/movies");
     setCurrentRoute("/movies");
+    history.push("/movies");
   };
   const handleRedirectionSavedMovies = () => {
-    history.push("/saved-movies");
     setCurrentRoute("/saved-movies");
+    history.push("/saved-movies");
   };
   const handleRedirectionProfile = () => {
-    history.push("/profile");
     setCurrentRoute("/profile");
+    history.push("/profile");
   };
   const handleRedirectionNotFound = () => {
     history.push(currentRoute);
   };
   const handleRedirectionLogout = () => {
-    history.push("/");
+    localStorage.removeItem("jwt");
     setCurrentRoute("/");
     setIsLoggedInState(false);
+    history.push("/");
   };
   const handleRedirectionSignIn = () => {
-    history.push("/signin");
     setCurrentRoute("/signin");
+    history.push("/signin");
   };
   const handleRedirectionSignUp = () => {
-    history.push("/signup");
     setCurrentRoute("/signup");
+    history.push("/signup");
   };
   const handleLogIn = (formData) => {
-    history.push("/movies");
-    setCurrentRoute("/movies");
-    setIsLoggedInState(true);
     setUser(formData);
+    setIsLoggedInState(true);
+    setCurrentRoute("/movies");
+    history.push("/movies");
   };
 
   const handleUserUpdate = (formData) => {
     setUser(formData);
   };
+
+  const handleSignUp = (data) => {
+    signUp(data)
+      .then(res => {
+        if (!(res === undefined)) {
+          handleLogIn(res);
+        }
+      })
+      .catch(err => console.log(err))
+  };
+
+  const handleSignIn = (data) => {
+    signIn(data)
+      .then(res => {
+        if (!(res === undefined)) {
+          handleLogIn(data);
+        }
+      })
+      .catch(err => console.log(err))
+  };
+
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem("jwt");
+
+    if (jwt) {
+      authenticate(jwt)
+        .then(res => {
+          setIsLoggedInState(true);
+          setUser(res);
+        })
+        .catch(err => console.log(err))
+    }
+  };
+
+  React.useEffect(() => {
+    tokenCheck();
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={user}>
@@ -118,13 +158,13 @@ function App() {
           <Route exact path={"/signup"}>
             <Register
               handleRedirectionAuth={handleRedirectionAuth}
-              handleLogIn={handleLogIn}
+              handleLogIn={handleSignUp}
             />
           </Route>
           <Route exact path={"/signin"}>
             <Login
               handleRedirectionAuth={handleRedirectionAuth}
-              handleLogIn={handleLogIn}
+              handleLogIn={handleSignIn}
             />
           </Route>
           <Route path="*">
