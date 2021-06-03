@@ -148,13 +148,11 @@ function App() {
         if (!(res === undefined) && res.token) {
           changeToken(res.token);
           setIfFetchFailed(false);
+          handleLogIn();
         } else {
           setIfFetchFailed(true);
         }
         setIsPopupOpened(true);
-      })
-      .then(() => {
-        handleLogIn();
       })
       .catch(err => {
         console.log(err)
