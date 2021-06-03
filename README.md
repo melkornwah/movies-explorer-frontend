@@ -1,3 +1,11 @@
+## Ссылка на макет
+[https://disk.yandex.ru/d/NBypHsfXoGdLvA](https://disk.yandex.ru/d/NBypHsfXoGdLvA)
+
+## Ссылка на деплой приложения
+[http://diploma.melkornwah.nomoredomains.icu/](http://diploma.melkornwah.nomoredomains.icu/)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
