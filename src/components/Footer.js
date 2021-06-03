@@ -2,11 +2,13 @@ import React from "react";
 
 function Footer(props) {
   const currentRoute =
-    props.currentRoute === "/movies"
+    window.location.href === `${props.BASE_URL}/`
       ||
-    props.currentRoute === "/saved-movies"
+    window.location.href === `${props.BASE_URL}/movies`
       ||
-    props.currentRoute === "/";
+    window.location.href === `${props.BASE_URL}/saved-movies`
+
+  React.useEffect(() => {}, [currentRoute]);
 
   return(
     <>

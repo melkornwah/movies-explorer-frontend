@@ -1,8 +1,8 @@
 .movies-card__photo {
   width: 364px;
   height: 203px;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media screen and (max-width: 1279px) {

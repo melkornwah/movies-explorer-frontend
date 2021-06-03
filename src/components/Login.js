@@ -1,29 +1,42 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { handleFormValueChange, checkFormValidity } from "../utils/ulits";
 
 function Login(props) {
-  const [emailValue, setEmailValue] = React.useState("");
-  const [passwordValue, setPasswordValue] = React.useState("");
+  const [values, setValues] = React.useState({});
+  const [errors, setErrors] = React.useState({});
+  const [isInputsValid, setIsInputValid] = React.useState({
+    email: true,
+    password: false
+  });
+  const [isFormValid, setIsFormValid] = React.useState(false);
 
-  const handleRedirection = () => {
-    props.handleRedirectionAuth();
+  const options = {
+    values,
+    errors,
+    isInputsValid,
+    isFormValid,
+    setValues,
+    setErrors,
+    setIsInputValid,
+    setIsFormValid
   };
 
-  const handleEmailChange = (evt) => {
-    setEmailValue(evt.target.value);
-  };
-
-  const handlePasswordChange = (evt) => {
-    setPasswordValue(evt.target.value);
+  const handleChange = (evt) => {
+    handleFormValueChange(evt, options);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleLogIn({
-      email: emailValue,
-      password: passwordValue
+    props.handleSignIn({
+      email: values.email,
+      password: values.password
     });
   };
+
+  React.useEffect(() => {
+    checkFormValidity(options);
+  }, [isInputsValid]);
 
   return(
     <section className="login">
@@ -33,18 +46,50 @@ function Login(props) {
             <p className="auth-form__input-name">
               E-mail
             </p>
-            <input className="auth-form__input" type="email" name="e-mail" onChange={handleEmailChange} />
+            {
+              isInputsValid.email
+                ?
+              <>
+                <input className="auth-form__input" type="email" name="email" onChange={handleChange} required />
+                <span className="auth-form__error-message">{errors.email}</span>
+              </>
+                :
+              <>
+                <input className="auth-form__input auth-form__input-error" type="email" name="email" onChange={handleChange} required />
+                <span className="auth-form__error-message auth-form__error-message_active">{errors.email}</span>
+              </>
+            }
           </label>
           <label className="auth-form__label">
             <p className="auth-form__input-name">
               Пароль
             </p>
-            <input className="auth-form__input" type="password" name="password" onChange={handlePasswordChange} />
+            {
+              isInputsValid.password
+                ?
+              <>
+                <input className="auth-form__input" type="password" name="password" onChange={handleChange} required />
+                <span className="auth-form__error-message">{errors.password}</span>
+              </>
+                :
+              <>
+                <input className="auth-form__input auth-form__input-error" type="password" name="password" onChange={handleChange} required />
+                <span className="auth-form__error-message auth-form__error-message_active">{errors.password}</span>
+              </>
+            }
           </label>
         </fieldset>
-        <button className="auth-form__submit-button auth-form__submit-button_login" type="submit">
-          Войти
-        </button>
+        {
+          isFormValid
+            ?
+          <button className="auth-form__submit-button auth-form__submit-button_login" type="submit">
+            Войти
+          </button>
+            :
+          <button className="auth-form__submit-button auth-form__submit-button_inactive auth-form__submit-button_login" type="button">
+            Войти
+          </button>
+        }
         <div className="auth-form__redirect">
           <p className="auth-form__redirect-text">
             Ещё не зарегистрированы?

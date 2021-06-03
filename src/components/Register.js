@@ -1,35 +1,45 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { handleFormValueChange, checkFormValidity } from "../utils/ulits";
 
 function Register(props) {
-  const [nameValue, setNameValue] = React.useState("");
-  const [emailValue, setEmailValue] = React.useState("");
-  const [passwordValue, setPasswordValue] = React.useState("");
+  const [values, setValues] = React.useState({});
+  const [errors, setErrors] = React.useState({});
+  const [isInputsValid, setIsInputValid] = React.useState({
+    name: true,
+    email: true,
+    password: false
+  });
+  const [isFormValid, setIsFormValid] = React.useState(false);
 
-  const handleRedirection = () => {
-    props.handleRedirectionAuth();
+  const options = {
+    values,
+    errors,
+    isInputsValid,
+    setValues,
+    setErrors,
+    setIsInputValid,
+    setIsFormValid
   };
 
-  const handleNameChange = (evt) => {
-    setNameValue(evt.target.value);
-  };
-
-  const handleEmailChange = (evt) => {
-    setEmailValue(evt.target.value);
-  };
-
-  const handlePasswordChange = (evt) => {
-    setPasswordValue(evt.target.value);
+  const handleChange = (evt) => {
+    handleFormValueChange(evt, options);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleLogIn({
-      name: nameValue,
-      email: emailValue,
-      password: passwordValue
+    props.handleSignUp({
+      name: values.name,
+      email: values.email,
+      password: values.password
     });
   };
+
+  React.useEffect(() => {
+    checkFormValidity(options);
+  }, [isInputsValid]);
+
+  React.useEffect(() => {}, [isFormValid]);
 
   return(
     <section className="register">
@@ -39,27 +49,69 @@ function Register(props) {
             <p className="auth-form__input-name">
               Имя
             </p>
-            <input className="auth-form__input" type="text" name="name" onChange={handleNameChange} />
+            {
+              isInputsValid.name
+                ?
+              <>
+                <input className="auth-form__input" type="text" name="name" onChange={handleChange} required />
+                <span className="auth-form__error-message">{errors.password}</span>
+              </>
+                :
+              <>
+                <input className="auth-form__input auth-form__input-error" type="text" name="name" onChange={handleChange} required />
+                <span className="auth-form__error-message auth-form__error-message_active">{errors.name}</span>
+              </>
+            }
           </label>
           <label className="auth-form__label">
             <p className="auth-form__input-name">
               E-mail
             </p>
-            <input className="auth-form__input" type="email" name="e-mail" onChange={handleEmailChange} />
+            {
+              isInputsValid.email
+                ?
+              <>
+                <input className="auth-form__input" type="email" name="email" onChange={handleChange} required />
+                <span className="auth-form__error-message">{errors.email}</span>
+              </>
+                :
+              <>
+                <input className="auth-form__input auth-form__input-error" type="email" name="email" onChange={handleChange} required />
+                <span className="auth-form__error-message auth-form__error-message_active">{errors.email}</span>
+              </>
+            }
           </label>
           <label className="auth-form__label">
             <p className="auth-form__input-name">
               Пароль
             </p>
-            <input className="auth-form__input auth-form__input_error" type="password" name="password" onChange={handlePasswordChange} />
-            <span className="auth-form__error-message auth-form__error-message_active">
-              Что-то пошло не так...
-            </span>
+            {
+              isInputsValid.password
+                ?
+              <>
+                <input className="auth-form__input" type="password" name="password" onChange={handleChange} required />
+                <span className="auth-form__error-message">{errors.password}</span>
+              </>
+                :
+              <>
+                <input className="auth-form__input auth-form__input-error" type="password" name="password" onChange={handleChange} required />
+                <span className="auth-form__error-message auth-form__error-message_active">{errors.password}</span>
+              </>
+            }
           </label>
         </fieldset>
-        <button className="auth-form__submit-button" type="submit">
-          Зарегистрироваться
-        </button>
+        {
+          isFormValid
+            ?
+          <button className="auth-form__submit-button" type="submit">
+            Зарегистрироваться
+          </button>
+            :
+          <button className="auth-form__submit-button auth-form__submit-button_inactive" type="button">
+            Зарегистрироваться
+          </button>
+        }
+
         <div className="auth-form__redirect">
           <p className="auth-form__redirect-text">
             Уже зарегистрированы?

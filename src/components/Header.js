@@ -1,10 +1,9 @@
 import React from "react";
 import Navigation from "./Navigation";
+import { Link } from 'react-router-dom';
 
 function Header(props) {
-  const handleRedirectionMain = () => {
-    props.handleRedirectionMain();
-  };
+  React.useEffect(() => {}, [props.currentRoute, props.isAuth]);
 
   return(
     <>
@@ -16,7 +15,7 @@ function Header(props) {
             props.isAuth
               ?
             <header className="header header_route_auth">
-              <button className="header__logo" onClick={handleRedirectionMain} />
+              <Link className="header__logo" to="/" />
                 {
                   window.location.href === `${props.BASE_URL}/signup`
                     ?
@@ -31,7 +30,7 @@ function Header(props) {
             </header>
               :
             <header className="header">
-              <button className="header__logo" onClick={handleRedirectionMain} />
+              <Link className="header__logo" to="/" />
               <Navigation
                 isLoggedIn={props.isLoggedIn}
               />

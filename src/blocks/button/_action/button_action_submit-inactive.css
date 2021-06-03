@@ -1,0 +1,8 @@
+.button_action_submit-inactive {
+  background-color: #8b8b8b;
+  cursor: default;
+}
+
+.button_action_submit-inactive:hover {
+  opacity: 1;
+}
