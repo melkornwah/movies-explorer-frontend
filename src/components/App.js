@@ -130,22 +130,28 @@ function App() {
   const handleSignUp = (data) => {
     signUp(data)
       .then(res => {
-        if (!(res === undefined)) {
+        if (!(res === undefined) && (res.name && res.email)) {
           handleSignIn(data);
+        } else {
+          setIfFetchFailed(true);
         }
+        setIsPopupOpened(true);
       })
       .catch(err => {
         console.log(err);
-        setIfFetchFailed(true);
       })
   };
 
   const handleSignIn = (data) => {
     signIn(data)
       .then(res => {
-        if (!(res === undefined)) {
+        if (!(res === undefined) && res.token) {
           changeToken(res.token);
+          setIfFetchFailed(false);
+        } else {
+          setIfFetchFailed(true);
         }
+        setIsPopupOpened(true);
       })
       .then(() => {
         handleLogIn();
