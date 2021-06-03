@@ -6,6 +6,7 @@ function Login(props) {
   const [values, setValues] = React.useState({});
   const [errors, setErrors] = React.useState({});
   const [isInputsValid, setIsInputValid] = React.useState({
+    name: true,
     email: true,
     password: false
   });
