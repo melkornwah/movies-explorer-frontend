@@ -21,7 +21,6 @@ function MoviesCard(props) {
       :
     movie.trailerLink;
 
-  const [duration, setDuration] = React.useState("");
   const [isLiked, setIsLikedStatus] = React.useState(false);
 
   const handleDeleteClick = () => {
@@ -55,12 +54,12 @@ function MoviesCard(props) {
   const getTimeFromMins = (mins) => {
     const hours = Math.trunc(mins/60);
     const minutes = mins % 60;
-    return hours + "ч " + minutes + "м";
+    if (hours > 0) {
+      return hours + "ч " + minutes + "м";
+    } else {
+      return minutes + "м";
+    }
   };
-
-  React.useEffect(() => {
-    setDuration(getTimeFromMins(props.item.duration))
-  }, []);
 
   React.useEffect(() => {}, [props.movieCounter]);
 
@@ -100,7 +99,7 @@ function MoviesCard(props) {
                 {movie.nameRU}
               </h2>
               <p className="movies-card__length">
-                {duration}
+                {getTimeFromMins(props.item.duration)}
               </p>
             </div>
             {

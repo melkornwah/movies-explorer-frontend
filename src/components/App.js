@@ -61,6 +61,7 @@ function App() {
   const [isPopupOpened, setIsPopupOpened] = React.useState(false);
   const [ifFetchFailed, setIfFetchFailed] = React.useState(false);
   const [isNothingFound, setIsNothingFound] = React.useState(false);
+  const [isInputBlocked, setIsInputBlockedState] = React.useState(false);
   const [isMoviesArrayEmpty, setIsMoviesArrayEmpty] = React.useState(() => {
     if (searchedMovies.length > 0 || savedMovies.length > 0 || sortedMovies.length > 0) {
       return false;
@@ -112,6 +113,8 @@ function App() {
   };
 
   const handleUserUpdate = (formData) => {
+    setIsInputBlockedState(true);
+
     updateUser(formData, token)
       .then(res => {
         if (!(res.message)) {
@@ -122,20 +125,28 @@ function App() {
         }
         setIsPopupOpened(true);
       })
+      .then(() => {
+        setIsInputBlockedState(false);
+      })
       .catch(err => {
         console.log(err);
       })
   };
 
   const handleSignUp = (data) => {
+    setIsInputBlockedState(true);
+
     signUp(data)
       .then(res => {
         if (!(res === undefined) && (res.name && res.email)) {
+          setIfFetchFailed(false);
           handleSignIn(data);
         } else {
           setIfFetchFailed(true);
         }
-        setIsPopupOpened(true);
+      })
+      .then(() => {
+        setIsInputBlockedState(false);
       })
       .catch(err => {
         console.log(err);
@@ -143,6 +154,8 @@ function App() {
   };
 
   const handleSignIn = (data) => {
+    setIsInputBlockedState(true);
+
     signIn(data)
       .then(res => {
         if (!(res === undefined) && res.token) {
@@ -152,7 +165,9 @@ function App() {
         } else {
           setIfFetchFailed(true);
         }
-        setIsPopupOpened(true);
+      })
+      .then(() => {
+        setIsInputBlockedState(false);
       })
       .catch(err => {
         console.log(err)
@@ -233,15 +248,8 @@ function App() {
 
       movieNames.forEach(value => {
         if (value) {
-          if (value.toLowerCase() === formData.toLowerCase() && !(moviesArray.includes(movie))) {
+          if (value.toLowerCase().includes(formData.toLowerCase()) && !(moviesArray.includes(movie))) {
             moviesArray.push(movie);
-          } else {
-            const arr = value.split(" ");
-            arr.forEach(i => {
-              if (i.toLowerCase() === formData.toLowerCase() && !(moviesArray.includes(movie))) {
-                moviesArray.push(movie);
-              }
-            })
           }
         }
       })
@@ -249,7 +257,7 @@ function App() {
 
     if (shortFilms) {
       const shortMovies = array.filter(m => {
-        return !(m.duration > 40);
+        return (m.duration < 40);
       });
 
       setSearchedMovies(shortMovies);
@@ -264,7 +272,7 @@ function App() {
 
   const sortShortFilms = () => {
     const shortMovies = searchedMovies.filter(m => {
-      return !(m.duration > 40);
+      return (m.duration < 40);
     });
 
     setSortedMovies(shortMovies);
@@ -387,15 +395,22 @@ function App() {
             isLoggedIn={isLoggedIn}
             handleUserUpdate={handleUserUpdate}
             handleLogout={handleLogout}
+            isInputBlocked={isInputBlocked}
           />
           <Route path={"/signup"}>
             <Register
               handleSignUp={handleSignUp}
+              isInputBlocked={isInputBlocked}
+              ifFetchFailed={ifFetchFailed}
+              setIfFetchFailed={setIfFetchFailed}
             />
           </Route>
           <Route path={"/signin"}>
             <Login
               handleSignIn={handleSignIn}
+              isInputBlocked={isInputBlocked}
+              ifFetchFailed={ifFetchFailed}
+              setIfFetchFailed={setIfFetchFailed}
             />
           </Route>
           <Route path="*">

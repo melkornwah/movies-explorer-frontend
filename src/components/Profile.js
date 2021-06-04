@@ -13,7 +13,7 @@ function Profile(props) {
   const [errors, setErrors] = React.useState({});
   const [isInputsValid, setIsInputValid] = React.useState({
     name: true,
-    email: true,
+    email: false,
     password: true
   });
   const [isFormValid, setIsFormValid] = React.useState(true);
@@ -48,7 +48,7 @@ function Profile(props) {
     checkFormValidity(options);
   }, [isInputsValid]);
 
-  React.useEffect(() =>{}, [user]);
+  React.useEffect(() =>{}, [user, props.isInputBlocked]);
 
   return(
     <section className="profile">
@@ -56,36 +56,75 @@ function Profile(props) {
         Привет, {user.name}!
       </h2>
       <form className="profile__form" onSubmit={handleSubmit}>
-        <fieldset className="profile__form-inputs">
-          <label className="profile__form-label">
-            <p className="profile__form-placeholder">
-              Имя
-            </p>
-            <input className="profile__form-input" name="name" type="text" value={values.name} onChange={handleChange} />
-          </label>
-          <label className="profile__form-label">
-            <p className="profile__form-placeholder">
-              Почта
-            </p>
-            <input className="profile__form-input" name="email" type="email" value={values.email} onChange={handleChange} />
-          </label>
-        </fieldset>
-        <div className="profile__form-buttons">
-          {
-            isFormValid
-              ?
-            <button className="button button_action_edit" type="submit">
-              Редактировать
-            </button>
-              :
-            <button className="button button_action_edit button_action_edit-inactive" type="button">
-              Редактировать
-            </button>
-          }
-          <Link className="button button_action_logout" to="/" onClick={handleLogout}>
-            Выйти из аккаунта
-          </Link>
-        </div>
+        {
+          props.isInputBlocked
+            ?
+          <>
+            <fieldset className="profile__form-inputs">
+              <label className="profile__form-label">
+                <p className="profile__form-placeholder">
+                  Имя
+                </p>
+                <input className="profile__form-input" name="name" type="text" value={values.name} onChange={handleChange} />
+              </label>
+              <label className="profile__form-label">
+                <p className="profile__form-placeholder">
+                  Почта
+                </p>
+                <input className="profile__form-input" name="email" type="email" value={values.email} onChange={handleChange} />
+              </label>
+            </fieldset>
+            <div className="profile__form-buttons">
+              {
+                isFormValid
+                  ?
+                <button className="button button_action_edit" type="submit">
+                  Редактировать
+                </button>
+                  :
+                <button className="button button_action_edit button_action_edit-inactive" type="button">
+                  Редактировать
+                </button>
+              }
+              <Link className="button button_action_logout" to="/" onClick={handleLogout}>
+                Выйти из аккаунта
+              </Link>
+            </div>
+          </>
+            :
+          <>
+            <fieldset className="profile__form-inputs">
+              <label className="profile__form-label">
+                <p className="profile__form-placeholder">
+                  Имя
+                </p>
+                <input className="profile__form-input" name="name" type="text" value={values.name} onChange={handleChange} />
+              </label>
+              <label className="profile__form-label">
+                <p className="profile__form-placeholder">
+                  Почта
+                </p>
+                <input className="profile__form-input" name="email" type="email" value={values.email} onChange={handleChange} />
+              </label>
+            </fieldset>
+            <div className="profile__form-buttons">
+              {
+                isFormValid
+                  ?
+                <button className="button button_action_edit" type="submit">
+                  Редактировать
+                </button>
+                  :
+                <button className="button button_action_edit button_action_edit-inactive" type="button">
+                  Редактировать
+                </button>
+              }
+              <Link className="button button_action_logout" to="/" onClick={handleLogout}>
+                Выйти из аккаунта
+              </Link>
+            </div>
+          </>
+        }
       </form>
     </section>
   );

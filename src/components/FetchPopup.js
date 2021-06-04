@@ -1,5 +1,4 @@
 import React from "react";
-import { BASE_URL } from "../utils/ulits";
 
 const FetchPopup = (props) => {
   const closePopup = () => {
@@ -24,17 +23,7 @@ const FetchPopup = (props) => {
                 :
               <>
                 <p className="popup__icon">✔</p>
-                  {
-                    window.location.href === `${BASE_URL}/signup`
-                      ?
-                    <h2 className="popup__heading">Вы успешно зарегистрировались!</h2>
-                      :
-                    window.location.href === `${BASE_URL}/signin`
-                      ?
-                    <h2 className="popup__heading">Вы успешно авторизировались!</h2>
-                      :
-                    <h2 className="popup__heading">Профиль успешно изменён!</h2>
-                  }
+                <h2 className="popup__heading">Профиль успешно изменён!</h2>
               </>
             }
 

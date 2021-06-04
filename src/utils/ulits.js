@@ -2,6 +2,11 @@ export const BASE_URL = "http://localhost:3000";
 
 export const MOVIE_URL = "https://api.nomoreparties.co";
 
+export const loadMoreMovies = {
+  desktop: 3,
+  mobile: 2
+};
+
 export const nameRegex = /^[a-zа-яё -]+$/gmui;
 export const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 
@@ -18,6 +23,10 @@ export  const handleFormValueChange = (evt, options) => {
     } else if (!value.match(nameRegex) || value.length < 2) {
       options.setErrors({...options.errors, [name]: "Введены некорректные данные..."});
       options.setIsInputValid({...options.isInputsValid, [name]: false});
+    } else if (options.user) {
+      if (value === options.user.name) {
+        options.setIsInputValid({...options.isInputsValid, [name]: false});
+      }
     } else {
       options.setIsInputValid({...options.isInputsValid, [name]: true});
     }
@@ -28,6 +37,10 @@ export  const handleFormValueChange = (evt, options) => {
     } else if (!value.match(emailRegex)) {
       options.setErrors({...options.errors, [name]: "Введены некорректные данные..."});
       options.setIsInputValid({...options.isInputsValid, [name]: false});
+    } else if (options.user) {
+      if (value === options.user.email) {
+        options.setIsInputValid({...options.isInputsValid, [name]: false});
+      }
     } else {
       options.setIsInputValid({...options.isInputsValid, [name]: true});
     }

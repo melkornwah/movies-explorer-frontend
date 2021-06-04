@@ -54,10 +54,12 @@ function MoviesCardList(props) {
 
   const movieButtonRenderer = () => {
     if (window.location.href === `${BASE_URL}/movies`) {
-      if (movieCounter <= props.searchedMovies.length) {
-        setMoreButtonState(true);
-      } else {
+      if (movieCounter > props.searchedMovies.length && props.sortedMovies.length === 0) {
         setMoreButtonState(false);
+      } else if (movieCounter > props.sortedMovies.length && !(props.sortedMovies.length === 0)) {
+        setMoreButtonState(false);
+      } else {
+        setMoreButtonState(true);
       }
     }
   };
@@ -100,6 +102,7 @@ function MoviesCardList(props) {
               handleSaveMovie={props.handleSaveMovie}
               handleDeleteMovie={props.handleDeleteMovie}
               handleLessenCounter={handleLessenCounter}
+              ifSortedMovies={props.ifSortedMovies}
             />
           })
             :
@@ -119,6 +122,7 @@ function MoviesCardList(props) {
               num={num}
               handleDeleteMovie={props.handleDeleteMovie}
               handleLessenCounter={handleLessenCounter}
+              ifSortedMovies={props.ifSortedMovies}
             />
           })
             :
@@ -138,6 +142,7 @@ function MoviesCardList(props) {
               handleDeleteMovie={props.handleDeleteMovie}
               savedMovies={props.savedMovies}
               handleLessenCounter={handleLessenCounter}
+              ifSortedMovies={props.ifSortedMovies}
             />
           })
           :
