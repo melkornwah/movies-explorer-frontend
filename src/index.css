@@ -26,8 +26,10 @@
 @import url("./blocks/button/_action/button_action_to-register.css");
 @import url("./blocks/button/_action/button_action_to-login.css");
 @import url("./blocks/button/_action/button_action_submit.css");
+@import url("./blocks/button/_action/button_action_submit-inactive.css");
 @import url("./blocks/button/_action/button_action_more.css");
 @import url("./blocks/button/_action/button_action_edit.css");
+@import url("./blocks/button/_action/button_action_edit-inactive.css");
 @import url("./blocks/button/_action/button_action_logout.css");
 @import url("./blocks/button/_action/button_action_to-movies.css");
 @import url("./blocks/button/_action/button_action_to-saves-movies.css");
@@ -86,6 +88,11 @@
 @import url("./blocks/portfolio/__link-ref/portfolio__link-ref.css");
 @import url("./blocks/portfolio/__link-icon/portfolio__link-icon.css");
 
+@import url("./blocks/movies/movies.css");
+@import url("./blocks/movies/__heading/movies__heading.css");
+
+@import url("./blocks/saved-movies/saved-movies.css");
+
 @import url("./blocks/search-form/search-form.css");
 @import url("./blocks/search-form/__main-container/search-form__main-container.css");
 @import url("./blocks/search-form/__label/search-form__label.css");
@@ -132,6 +139,7 @@
 @import url("./blocks/auth-form/__error-message/auth-form__error-message.css");
 @import url("./blocks/auth-form/__error-message/_active/auth-form__error-message_active.css");
 @import url("./blocks/auth-form/__submit-button/auth-form__submit-button.css");
+@import url("./blocks/auth-form/__submit-button/_inactive/auth-form__submit-button_inactive.css");
 @import url("./blocks/auth-form/__submit-button/_login/auth-form__submit-button_login.css");
 @import url("./blocks/auth-form/__redirect/auth-form__redirect.css");
 @import url("./blocks/auth-form/__redirect-text/auth-form__redirect-text.css");
@@ -149,3 +157,10 @@
 @import url("./blocks/footer/__links/footer__links.css");
 @import url("./blocks/footer/__link-item/footer__link-item.css");
 @import url("./blocks/footer/__link-ref/footer__link-ref.css");
+
+@import url("./blocks/popup/popup.css");
+@import url("./blocks/popup/_is-opened/popup_is-opened.css");
+@import url("./blocks/popup/__overlay/popup__overlay.css");
+@import url("./blocks/popup/__container/popup__container.css");
+@import url("./blocks/popup/__heading/popup__heading.css");
+@import url("./blocks/popup/__icon/popup__icon.css");
