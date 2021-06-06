@@ -2,7 +2,7 @@
 [https://disk.yandex.ru/d/NBypHsfXoGdLvA](https://disk.yandex.ru/d/NBypHsfXoGdLvA)
 
 ## Ссылка на деплой приложения
-[https://diploma.melkornwah.nomoredomains.icu/](http://diploma.melkornwah.nomoredomains.icu/)
+[https://diploma.melkornwah.nomoredomains.icu/](https://diploma.melkornwah.nomoredomains.icu/)
 
 ---
 
